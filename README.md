@@ -13,5 +13,5 @@ Tool aggregating data from Google Calendars, PagerDuty and Google Sheets to show
 * decoupling of PD read-only token from binary would be nice (probably creation of some appengine service?)
 * better handling of multiple events during day
 
-![Image of example](https://github.com/DeziderMesko/kdevpije/kdevpije.png)
+![Image of example](https://github.com/DeziderMesko/kdevpije/blob/master/kdevpije.png)
 
