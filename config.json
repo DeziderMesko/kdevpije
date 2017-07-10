@@ -1,0 +1,26 @@
+{
+    "Intervals":{"week":7, "sprint":14, "default":8},
+    "Aliases":{
+        "blesk":["mic"],
+        "t9":["team9"],
+        "t8":["team8"],
+        "t7":["team7"],
+        "t1":["team1"],
+        "team9":["tdu","zpi","div","jgr"],
+        "team8":["msu","lf","aaa","rsm","mko"],
+        "team7":["pkl","pbe","mic","jo","sce","atk"],
+        "team1":["rgo","jza","pb","mto","pro","mtt","kmr","nce","jsy"],
+        "teamX":["hh","rmo","mcl","sce","ssu"],
+        "lhv":["pkl", "tdu"],
+        "horizon": ["jpl","ost","pvl","sde","mra","jso","pce","tkl"],
+        "jor":["jo"],
+        "stop":["Opichal"],
+        "paas":["t7","t8","t9","svi","poh","pgr","pfr","dme","mza"],
+        "best":["lv","jch","mpl","rhr"],
+        "sm":["dme","jsi","rkl","rgo","jke"]
+    },
+    "VacationCalendarId":"gooddata.com_2tcf3kskhm054fb7vg34oh7nhrg@group.calendar.google.com",
+    "TripsCalendarId":"gooddata.com_94kdisrgfdt32qg2odrlsui6mgs@group.calendar.google.com",
+    "GdriveEmployeesListId":"0B7qM3vgXOhNyU25f3432tPN05fSzQ",
+    "EmployeesFile":"Employees_data.json"
+}

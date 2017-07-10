@@ -1,0 +1,64 @@
+function myFunction() {
+  var sheet = SpreadsheetApp.openById("1ox_P3NWajxg9JhIu41_H9ofLXPBulAzjpo6WxQbv5nU");
+  var json = makeJson(sheet.getDataRange());
+  //DriveApp.createFile('Employees data.json', json, MimeType.JAVASCRIPT);
+  DriveApp.getFileById("0B7qM3vgXOhNyU25f3432tPN05fSzQ").setContent(json)
+}
+
+function makeJson(dataRange) {
+  var charSep = '"';
+  
+  var result = "", thisName = "", thisData = "";
+  
+  var frozenRows = dataRange.getSheet().getFrozenRows();
+  var dataRangeArray = dataRange.getValues();
+  var dataWidth = dataRange.getWidth();
+  var dataHeight = dataRange.getHeight() - frozenRows;
+  
+  // range of names - we assume that the last frozen row is the list of properties
+  var nameRangeArray = dataRangeArray[frozenRows - 1];
+    
+  // open JSON object - if there's a extra frozen row on the top wrap results into that as property (only supports one for now)
+  result += frozenRows > 1 ? '{"' + dataRangeArray[frozenRows - 2][0] + '": [' : '[';
+  
+  for (var h = 0; h < dataHeight ; ++h) {
+    
+    result += '{';
+    
+    for (var i = 0; i < dataWidth; ++i) {
+     
+      thisName = nameRangeArray[i];
+      thisData = dataRangeArray[h + frozenRows][i];
+
+      // add name 
+      result += charSep + thisName + charSep + ':'
+        
+      // add data
+      result += charSep + jsonEscape(thisData) + charSep + ', ';
+      
+    }
+    
+    //remove last comma and space
+    result = result.slice(0,-2);
+    
+    result += '},\n';
+    
+  }
+  
+  //remove last comma and line break
+  result = result.slice(0,-2);
+
+  // close object
+  result += frozenRows > 1 ? ']}' : ']';
+    
+  return result;
+    
+}
+
+function jsonEscape(str)  {
+  if (typeof str === "string" && str !== "") {
+    return str.replace(/\n/g, "<br/>").replace(/\r/g, "<br/>").replace(/\t/g, "\\t");
+  } else {
+    return str;
+  }
+}
